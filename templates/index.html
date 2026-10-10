@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Student Registration</title>
+    <title>Student Registration</title>
 </head>
 <body>
 
 <h1>Student Registration Form</h1>
 
-<form action="/register"
-method="POST"
-enctype="multipart/form-data">
+{% if message %}
+    <p style="color: green;">{{ message }}</p>
+{% endif %}
 
-Name:
-<input type="text" name="name"><br><br>
+{% if error %}
+    <p style="color: red;">{{ error }}</p>
+{% endif %}
 
-Email:
-<input type="email" name="email"><br><br>
+<form action="/" method="POST" enctype="multipart/form-data">
 
-Course:
-<input type="text" name="course"><br><br>
+    Name:
+    <input type="text" name="name" required><br><br>
 
-Photo:
-<input type="file" name="photo"><br><br>
+    Email:
+    <input type="email" name="email" required><br><br>
 
-<input type="submit" value="Register">
+    Course:
+    <input type="text" name="course" required><br><br>
+
+    Photo:
+    <input type="file" name="photo" accept="image/*" required><br><br>
+
+    <input type="submit" value="Register">
 
 </form>
 
